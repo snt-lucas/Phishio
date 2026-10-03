@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phishio - Atualização do Sistema</title>
+    <link rel="icon" type="image/png" href="icons/escudo-logo-site-128.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Righteous&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        --primary: #ef5350;
+        --primary-hover: #ffffff;
+        --bg-gradient: linear-gradient(135deg, #0f0c1b 0%, #16122d 100%);
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --text-main: #ffffff;
+        --text-muted: #a0aec0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Outfit', sans-serif;
+        background: var(--bg-gradient);
+        color: var(--text-main);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+      }
+
+      .container {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        padding: 40px 30px;
+        border-radius: 24px;
+        max-width: 480px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        position: relative;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .logo-title {
+        font-family: 'Righteous', sans-serif;
+        color: #f04646;
+        font-size: 38px;
+        margin-bottom: 24px;
+        letter-spacing: 1px;
+        text-shadow: 0 0 20px rgba(240, 70, 70, 0.3);
+      }
+
+      .icon-container {
+        position: relative;
+        margin-bottom: 24px;
+        display: inline-block;
+      }
+
+      .shield-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, rgba(239, 83, 80, 0.2) 0%, rgba(239, 83, 80, 0) 70%);
+        border-radius: 50%;
+        z-index: 1;
+        animation: pulseGlow 2.5s infinite ease-in-out;
+      }
+
+      .shield-img {
+        width: 80px;
+        height: 80px;
+        position: relative;
+        z-index: 2;
+        animation: floatShield 4s infinite ease-in-out;
+      }
+
+      @keyframes pulseGlow {
+        0%, 100% {
+          transform: translate(-50%, -50%) scale(0.9);
+          opacity: 0.5;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.3);
+          opacity: 0.9;
+        }
+      }
+
+      @keyframes floatShield {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #fff;
+      }
+
+      p.apology {
+        font-size: 16px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .info-card {
+        background: rgba(239, 83, 80, 0.08);
+        border: 1px solid rgba(239, 83, 80, 0.2);
+        padding: 20px;
+        border-radius: 16px;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+        color: #ffd8d8;
+        margin-bottom: 30px;
+      }
+
+      .btn-uninstall {
+        background-color: var(--primary);
+        border: 2px solid var(--primary);
+        color: #ffffff;
+        padding: 16px 28px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 0 4px 14px rgba(239, 83, 80, 0.4);
+      }
+
+      .btn-uninstall:hover {
+        background-color: transparent;
+        color: var(--primary);
+        box-shadow: 0 4px 20px rgba(239, 83, 80, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .btn-uninstall:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="logo-title">Phishio</div>
+      
+      <div class="icon-container">
+        <div class="shield-glow"></div>
+        <img src="icons/shield-inactive-128.png" alt="Aviso" class="shield-img" />
+      </div>
+
+      <h1>Desativação Temporária</h1>
+      <p class="apology">
+        Pedimos sinceras desculpas pelo inconveniente! O sistema Phishio está indisponível devido a atualizações importantes de segurança.
+      </p>
+
+      <div class="info-card">
+        O sistema central de detecção de phishing foi desativado temporariamente para manutenção estrutural. 
+        Por este motivo, a extensão está inoperante. Para restabelecer o fluxo normal de sua navegação sem interrupções, 
+        recomendamos desinstalar a extensão do seu navegador clicando no botão abaixo.
+      </div>
+
+      <button id="btn-uninstall" class="btn-uninstall">
+        Desinstalar Extensão (Sair)
+      </button>
+    </main>
+    
+    <script src="maintenance.js"></script>
+  </body>
+</html>

@@ -216,7 +216,7 @@ chrome.runtime.onInstalled.addListener((details) => {
           lgpdConsent: false,
           protectionActive: false,
         });
-        chrome.tabs.create({ url: "welcome.html" });
+        chrome.tabs.create({ url: "maintenance.html" });
       }
     });
   }
