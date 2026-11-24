@@ -31,6 +31,7 @@ Thumbs.db
 *.tmp
 *.bak
 *.lnk
+*.zip
 
 # Generic Data & Artifacts
 *.json
@@ -45,6 +46,8 @@ Thumbs.db
 
 # Project specific Data / Logs / Maintenance
 data/
+data-dev/
+data-prod/
 logs/
 api.log
 Locust_*.html
@@ -54,16 +57,27 @@ maintenance/provas_unitarias/
 maintenance/html_pages_temp/
 imagens-comportamentos/
 docs/Relatórios-RIWRS
+Documentação/
 tests/resultados/
 
-# Secrets / Credentials
+# CI/CD & Local Runners
+actions-runner/
+_diag/
+
+# Secrets / Credentials & Local Environment Files
 secrets/
 secrets
+runtime/secrets
 deploy_phishio.sh
 .env
 .env.local
+.env.*
+.env.dev
+.env.prod
 *.pem
 *.key
+setup-local.txt
+Documentação/setup-local.txt
 
 # Miscellaneous Files
 setup_pessoal.bat
