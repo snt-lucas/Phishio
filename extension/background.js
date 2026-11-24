@@ -1,4 +1,5 @@
 /** Script de background (Service Worker) responsável por gerenciar a comunicação com a API. */
+// Em ambiente local de desenvolvimento (Docker), altere para: "http://localhost:8001"
 const API_ENDPOINT = "https://phishio.duckdns.org";
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

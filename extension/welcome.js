@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnAgree = document.getElementById("btn-agree");
   const btnDecline = document.getElementById("btn-decline");
   const container = document.querySelector(".container");
+  // Em ambiente local de desenvolvimento (Docker), altere para: "http://localhost:8001"
   const API_ENDPOINT = "https://phishio.duckdns.org";
 
   btnAgree.addEventListener("click", async (e) => {
