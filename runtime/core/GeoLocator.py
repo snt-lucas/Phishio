@@ -3,7 +3,10 @@ import logging
 import ipaddress
 import geoip2.database
 import geoip2.errors
-from core.Config import DATA_DIR
+try:
+    from .Config import DATA_DIR
+except ImportError:
+    from core.Config import DATA_DIR
 
 logger = logging.getLogger(__name__)
 
