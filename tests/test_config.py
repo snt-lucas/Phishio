@@ -1,16 +1,12 @@
-import importlib
-from unittest.mock import patch
+import os
 from pathlib import Path
+from runtime.core.Config import DATA_DIR, BASE_PATH
 
 
-def test_missing_secrets_file():
+def test_data_dir_resolution():
     """
-    Garante que a falta do arquivo de credenciais do Firestore (secrets)
-    gere uma falha tratável (que o backend captura na inicialização).
+    Garante que o DATA_DIR aponte para um diretório existente (seja data, data/dev ou data/prod).
     """
-    with patch('runtime.core.Config.SECRETS_FILE', Path('/caminho/falso/secrets.json')):
-        try:
-            importlib.import_module('runtime.main')
-        except Exception as e:
-            assert isinstance(e, (FileNotFoundError, Exception)
-                              ), "Deve tratar a falta do arquivo secrets."
+    assert DATA_DIR is not None
+    assert isinstance(DATA_DIR, Path)
+    assert DATA_DIR.exists(), f"O diretório de dados {DATA_DIR} deve existir no ambiente de execução."
