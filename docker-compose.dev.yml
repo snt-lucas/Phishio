@@ -1,0 +1,30 @@
+services:
+  api-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: phishio-api-dev
+    restart: unless-stopped
+    env_file:
+      - .env.dev
+    ports:
+      - "8001:8000"
+    volumes:
+      - .:/app
+      - ./data/dev:/app/data
+    depends_on:
+      - mongo-dev
+    command: uvicorn runtime.main:app --host 0.0.0.0 --port 8000 --reload
+
+  mongo-dev:
+    image: mongo:7.0
+    container_name: phishio-mongo-dev
+    restart: unless-stopped
+    ports:
+      - "27018:27017" # 27018 port on Windows (Prevents prod throuble/conflict)
+    volumes:
+      - mongo_data_dev:/data/db
+    command: ["mongod", "--wiredTigerCacheSizeGB", "0.5"] # Limits cache size to 512MB
+
+volumes:
+  mongo_data_dev:

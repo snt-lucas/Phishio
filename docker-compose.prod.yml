@@ -1,0 +1,28 @@
+services:
+  api-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: phishio-api-prod
+    restart: always
+    env_file:
+      - .env.prod
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/prod:/app/data
+    command: uvicorn runtime.main:app --host 0.0.0.0 --port 8000
+
+  mongo-prod:
+    image: mongo:7.0
+    container_name: phishio-mongo-prod
+    restart: always
+    ports:
+      - "27017:27017" # Prod default
+    volumes:
+      - mongo_data_prod:/data/db
+    command: ["mongod", "--wiredTigerCacheSizeGB", "1.0"] # 1GB cache for prod
+
+volumes:
+  mongo_data_prod:
+  
